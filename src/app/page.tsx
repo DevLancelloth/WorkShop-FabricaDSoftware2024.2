@@ -1,10 +1,19 @@
-import Agents from "@/components/Agents/Agents";
+"use client"
 
-// Função Default, traz todas as regras do componente Agents.
-export default function Home() {
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AgentList } from "../components/AgentsList/AgentsList";
+import { AgentDetail } from "../components/AgentDetail/AgentDetail";
+
+function App() {
   return (
-    <main className="flex flex-col min-h-screen items-center justify-center bg-slate-950">
-      <Agents />
-    </main>
+    <Router>
+      <Routes>
+        <Route path="/" element={<AgentList />} />
+        <Route path="/agent/:id" element={<AgentDetail />} />
+      </Routes>
+    </Router>
   );
-} 
+}
+
+export default App;
